@@ -4,6 +4,10 @@
         display: flex;
     }
 
+    &__sync-dollar-value {
+        width: 60px;
+    }
+
     &__product {
         display: flex;
         flex-direction: column;
