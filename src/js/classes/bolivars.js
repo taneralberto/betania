@@ -34,4 +34,10 @@ export default class Bolivars {
         return total.toFixed( 2 );
     }
 
+    reset() {
+        this.prices = [];
+        let $container = document.querySelector( '.bolivars__values' );
+        $container.innerHTML = '';
+    }
+
 }

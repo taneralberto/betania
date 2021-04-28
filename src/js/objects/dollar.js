@@ -12,6 +12,10 @@ let dollar = {
         value = data.USD.promedio;
 
         return value;
+    },
+
+    reset : function() {
+        this.value = 0;
     }
 }
 

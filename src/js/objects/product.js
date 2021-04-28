@@ -17,6 +17,13 @@ let product = {
         display : function( element ) {
             element.innerHTML = numberFormat( this.bolivar );
         },
+
+        reset : function() {
+            this.dollar = 0;
+            this.bolivar = 0;
+            output.productPrice.innerHTML = 0;
+            input.product.value = '';
+        },
     },
 }
 

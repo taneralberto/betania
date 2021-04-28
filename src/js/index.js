@@ -66,4 +66,16 @@ export default function init() {
 
     } );
 
+    /**
+     * Formatea todo
+     */
+    button.new.addEventListener( 'click', () => {
+        product.price.reset();
+        //dollar.reset();
+        bolivars.reset();
+        dollars.reset();
+        output.bolivarsTotal.innerHTML = 0.00;
+        output.dollarsTotal.innerHTML = 0.00;
+    } );
+
 }

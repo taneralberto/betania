@@ -33,4 +33,10 @@ export default class Dollars {
         return total.toFixed( 2 );
     }
 
+    reset() {
+        this.prices = [];
+        let $container = document.querySelector( '.dollars__values' );
+        $container.innerHTML = '';
+    }
+
 }
