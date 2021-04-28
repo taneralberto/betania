@@ -1,70 +1,69 @@
-import Producto from './classes/producto';
-import Bolivares from './classes/bolivares';
-import Dolares from './classes/dolares';
-import getValorDolar from './functions/valorDolar';
-import { button, input, output, precio } from './functions/properties';
+import product from './objects/product';
+import dollar from './objects/dollar';
+import { button, input, output, numberFormat } from './objects/properties';
+import Bolivars from './classes/bolivars';
+import Dollars from './classes/dollars';
 
 export default function init() {
 
-let producto = new Producto( output.totalProducto, precio.totalProducto );
-precio.actualizar( producto.getPrecio() );
-producto.displayPrecio( output.totalProducto );
+    function updateProductPrice() {
+        product.price.update( dollar.value );
+        product.price.display( output.productPrice );
+    }
 
-console.log(precio.totalProducto)
+    updateProductPrice();
 
-/**
- * Actualiza el valor del dolar con el de DolarToday y modifica el precio del producto
- */
-button.sincro.addEventListener( 'click', async () => {
+    /**
+     * Actualiza el valor del dolar con el de DolarToday y modifica el precio del producto
+     */
+    button.sync.addEventListener( 'click', async () => {
 
-    precio.dolar = await getValorDolar();
+        dollar.value = await dollar.updateWithDolarToday();
 
-    input.dolar.value = precio.dolar;
+        input.dollar.value = dollar.value;
 
-    producto.displayPrecio( output.totalProducto );
-    precio.actualizar( producto.getPrecio() );
-} );
+        updateProductPrice();
+    } );
 
-/**
- * Actualiza el precio del producto cada vez que cambia el precio
- */
-input.producto.addEventListener( 'input', e => {
+    /**
+     * Actualiza el precio del producto cada vez que cambia el precio
+     */
+    input.product.addEventListener( 'input', e => {
 
-    precio.producto = e.target.value;
+        product.price.dollar = e.target.value;
 
-    output.totalProducto.innerHTML = producto.getPrecio( precio.dolar, precio.producto );
-    precio.actualizar( producto.getPrecio() );
+        updateProductPrice();
 
-} );
+    } );
 
- /**
-  * Actualiza el valor del dolar con el introducido manualmente
-  * Actualiza el precio del producto cada vez que cambia el valor del dolar
-  */
-input.dolar.addEventListener( 'input', e => {
+    /**
+     * Actualiza el valor del dolar con el introducido manualmente
+     * Actualiza el precio del producto cada vez que cambia el valor del dolar
+     */
+    input.dollar.addEventListener( 'input', e => {
 
-    precio.dolar = e.target.value;
+        dollar.value = e.target.value;
 
-    output.totalProducto.innerHTML = producto.getPrecio( precio.dolar, precio.producto );
-    precio.actualizar( producto.getPrecio() );
+        updateProductPrice();
 
-} );
+    } );
 
-/*************************************************** */
+    /********BOLIVARES****************DOLARES******** */
 
-let bolivares = new Bolivares();
+    let bolivars = new Bolivars();
+    let dollars = new Dollars();
 
-/**
- * Agrega el valor del producto a la suma total
- */
-button.agregar.addEventListener( 'click', () => {
+    /**
+     * Agrega el valor del producto a la suma total
+     */
+    button.add.addEventListener( 'click', () => {
 
-    console.log(precio.totalProducto);
+        bolivars.addNewField( product.price.bolivar );
+        output.bolivarsTotal.innerHTML = numberFormat( bolivars.getTotal() );
 
-    bolivares.agregarNuevoCampo( precio.totalProducto );
+        dollars.addNewField( product.price.dollar );
+        output.dollarsTotal.innerHTML = numberFormat( dollars.getTotal() );
 
-    output.totalBolivares.innerHTML = bolivares.getTotal();
-
-} );
+    } );
 
 }

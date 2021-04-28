@@ -1,0 +1,33 @@
+.calc {
+
+    &__dollar {
+        display: flex;
+    }
+
+    &__product {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        row-gap: 1rem;
+    }
+
+    &__dollar-value {
+        width: 100%;
+        padding: .8rem;
+        margin-right: .5rem;
+        font-size: 1.2rem;
+    }
+
+    &__dollar-price {
+        width: 100%;
+        padding: .8rem;
+        margin-top: 1rem;
+        font-size: 1.2rem;
+    }
+
+    &__bolivar-price {
+        font-size: 1.5rem;
+        border: 3px solid hsla(0, 0%, 100%, .3);
+        padding: .5rem;
+    }
+}

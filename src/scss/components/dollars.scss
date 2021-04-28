@@ -1,0 +1,21 @@
+.dollars {
+
+    &__values {
+        display: flex;
+        flex-direction: column;
+        row-gap: .5rem;
+        color: #fff;
+        font-size: 1.2rem;
+    }
+
+    &__field {
+        border-bottom: 1px solid hsla(0, 0%, 100%, .3);
+        padding-top: .5rem;
+        padding-bottom: .5rem;
+    }
+
+    &__result {
+        font-size: 1.5rem;
+        margin-top: .5rem;
+    }
+}

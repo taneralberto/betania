@@ -1,0 +1,25 @@
+$main-color: hsla(262, 36%, 16%, 1);
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.site-main {
+    background: $main-color;
+    padding: 1rem;
+    //height: 100vh;
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    row-gap: 1rem;
+
+}
+
+.label {
+    color: #fff;
+    font-weight: bold;
+}

@@ -1,0 +1,12 @@
+.add-button, .new-button {
+    font-size: 2rem;
+    color: hsla(262, 36%, 16%, 1);;
+    border: 2px solid hsla(0, 0%, 100%, .3);
+    border-radius: 100px;
+    padding-top: .5rem;
+    padding-bottom: .5rem;
+
+    &:hover {
+        color: #fff;
+    }
+}
