@@ -17,7 +17,7 @@ let product = {
         },
 
         display : function( element ) {
-            element.innerHTML = `${numberFormat( this.bolivar )} Bs`;
+            element.innerHTML = numberFormat( this.bolivar );
         },
 
         reset : function() {
