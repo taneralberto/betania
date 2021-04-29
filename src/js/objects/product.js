@@ -8,6 +8,8 @@ let product = {
         bolivar : parseFloat( output.productPrice.innerHTML ),
 
         update : function( dollarValue ) {
+
+            console.log(this.dollar)
             let price = ( dollarValue * this.dollar ).toFixed( 2 );
             this.bolivar = parseFloat( price );
 
@@ -15,7 +17,7 @@ let product = {
         },
 
         display : function( element ) {
-            element.innerHTML = numberFormat( this.bolivar );
+            element.innerHTML = `${numberFormat( this.bolivar )} Bs`;
         },
 
         reset : function() {

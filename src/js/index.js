@@ -3,6 +3,7 @@ import dollar from './objects/dollar';
 import { button, input, output, numberFormat } from './objects/properties';
 import Bolivars from './classes/bolivars';
 import Dollars from './classes/dollars';
+import './objects/formatValue';
 
 export default function init() {
 
