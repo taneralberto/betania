@@ -1,8 +1,8 @@
 import product from './objects/product';
 import dollar from './objects/dollar';
 import { button, input, output, numberFormat } from './objects/properties';
-import Bolivars from './classes/bolivars';
-import Dollars from './classes/dollars';
+import Total from './classes/total';
+//import Dollars from './classes/dollars';
 import './objects/formatValue';
 
 export default function init() {
@@ -51,19 +51,25 @@ export default function init() {
 
     /********BOLIVARES****************DOLARES******** */
 
-    let bolivars = new Bolivars();
-    let dollars = new Dollars();
+    let total = new Total();
+    //let dollars = new Dollars();
 
     /**
      * Agrega el valor del producto a la suma total
      */
     button.add.addEventListener( 'click', () => {
 
-        bolivars.addNewField( product.price.bolivar );
-        output.bolivarsTotal.innerHTML = numberFormat( bolivars.getTotal() );
+        if ( product.price.bolivar > 0 && product.price.dollar > 0 ) {
 
-        dollars.addNewField( product.price.dollar );
-        output.dollarsTotal.innerHTML = numberFormat( dollars.getTotal() );
+            /**
+             * Adds new field into bolivars container and display the total
+             */
+            total.addNewBolivarField( product.price.bolivar );
+            //bolivars.displayTotal();
+
+            total.addNewDollarField( product.price.dollar );
+            //output.dollarsTotal.innerHTML = numberFormat( dollars.getTotal() );
+        }
 
     } );
 
@@ -73,8 +79,8 @@ export default function init() {
     button.new.addEventListener( 'click', () => {
         product.price.reset();
         //dollar.reset();
-        bolivars.reset();
-        dollars.reset();
+        total.resetBolivar();
+        total.resetDollar();
         output.bolivarsTotal.innerHTML = 0.00;
         output.dollarsTotal.innerHTML = 0.00;
     } );

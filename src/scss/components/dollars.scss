@@ -12,6 +12,13 @@
         border-bottom: 1px solid hsla(0, 0%, 100%, .3);
         padding-top: .5rem;
         padding-bottom: .5rem;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    &__delete-button {
+        font-weight: bold;
+        font-size: 1.2rem;
     }
 
     &__result {
