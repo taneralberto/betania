@@ -5,6 +5,18 @@ import Total from './classes/total';
 //import Dollars from './classes/dollars';
 import './objects/formatValue';
 
+if( "serviceWorker" in navigator ) {
+
+    navigator.serviceWorker.register( 'serviceWorker.js' ).then( registration => {
+        console.log( 'SW Registered!' );
+        console.log( registration );
+    } ) .catch( error => {
+        console.log( 'SW Registration Failed!' );
+        console.log( error );
+    } );
+
+}
+
 export default function init() {
 
     function updateProductPrice() {
