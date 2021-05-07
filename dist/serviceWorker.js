@@ -5,7 +5,7 @@ self.addEventListener( 'install', e => {
     e.waitUntil(
         caches.open( 'static' ).then( cache => {
             console.log( 'Caching' );
-            return cache.addAll( ['./dist', './dist/main.js', './dist/images/logo150.png'] );
+            return cache.addAll( ['./', './main.js', './images/logo150.png'] );
         } )
     );
 
