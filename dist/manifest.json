@@ -2,8 +2,8 @@
     "name": "Betania",
     "short_name": "Betania",
     "start_url": ".",
-    "background_color": "#251A37",
-    "theme_color": "#bbb333",
+    "background_color": "#ffffff",
+    "theme_color": "#251A37",
     "display": "standalone",
     "icons": [
         {
